@@ -4,21 +4,28 @@ tipos_cores = {
     'secundaria': ['verde', 'laranja', 'roxo'],
     }
 
-for tipo, cores in tipos_cores.items():
-    print(f"Cores {tipo}:")
-    for cor in cores:
-        print(f" - {cor}")
+for key, value in tipos_cores.items():
+    print(key)
+    print(value)
+
+for key, value in tipos_cores.items():
+    for cor in value:
+        print(cor)
+
+
+
+
 
 # 2 - Faca um for loop na lista e mostre qual tipo ela é
 lst_cores = ['vermelho', 'roxo', 'preto'] 
+
 for cor in lst_cores:
-    for tipo, cores in tipos_cores.items():
-        if cor in cores:
-            print(f"A cor {cor} é {tipo}.")
-            encontrado = True
-            break
-    if not encontrado:
-        print(f"A cor {cor} não pertence a nenhum tipo conhecido.")
+    if cor in tipos_cores["primaria"]:
+        print(f"{cor} é primaria")
+    elif cor in tipos_cores["secundaria"]:
+        print(f"{cor} é secundaria")
+    else:
+        print(f"{cor} é outro tipo")
 
 
 
@@ -33,14 +40,13 @@ precos = {
     'luva': 18.00,
     }
 
-compra = ['luva', 'blusa', 'tenis']
-
+compra = ["luva","blusa","tenis"]
 total_compra = 0
 for item in compra:
-    if item in precos:
-        total_compra += precos[item]
+    preco = precos[item]
+    total_compra += preco
+print(f"o total da compra é {total_compra}")
 
-print(f"O total da compra é: R$ {total_compra:.2f}")
 
 # 4 – Faca uma funcao que entre 3 notas e calcule a media
 #  final de acordo com o crirterio de nota do ibmec
@@ -49,3 +55,7 @@ print(f"O total da compra é: R$ {total_compra:.2f}")
 p1 = 8.5
 p2 = 9.0
 ac = 1.0
+
+from meu_pacote.modulo import calcular_nota
+nota_final = calcular_nota(p1, p2, ac)
+print(f"a nota final foi {nota_final}")
