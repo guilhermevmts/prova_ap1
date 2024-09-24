@@ -1,3 +1,3 @@
 def calcular_nota(x, y, z):
-    nota_final = x*0.4 + y*0.4 + z*0.2
+    nota_final = x + y + z / 3
     return nota_final 
